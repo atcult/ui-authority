@@ -1,0 +1,60 @@
+{
+  "name": "@folio/authority",
+  "version": "0.1.0",
+  "description": "Authority Module",
+  "main": "src/index.js",
+  "repository": "",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "start": "stripes serve config/stripes.config.js",
+    "build": "stripes build --output ./output",
+    "test": "stripes test nightmare --run demo --show",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@folio/eslint-config-stripes": "^1.1.0",
+    "babel-eslint": "^8.0.3",
+    "eslint": "^4.8.0"
+  },
+  "dependencies": {
+    "@folio/stripes-components": "^2.0.0",
+    "prop-types": "^15.6.0",
+    "react-intl": "^2.4.0",
+    "react-router-dom": "^4.1.1"
+  },
+  "peerDependencies": {
+    "react": "*"
+  },
+  "stripes": {
+    "type": "app",
+    "displayName": "Authority",
+    "route": "/authority",
+    "hasSettings": true,
+    "okapiInterfaces": {},
+    "icons": [
+      {
+        "name": "app",
+        "alt": "Create, view and manage authority module",
+        "title": "Authority"
+      }
+    ],
+    "permissionSets": [
+      {
+        "permissionName": "module.authority.enabled",
+        "displayName": "UI: Authority module is enabled",
+        "visible": true
+      },
+      {
+        "permissionName": "settings.authority.enabled",
+        "displayName": "Settings (authority): display list of settings pages",
+        "subPermissions": [
+          "settings.enabled"
+        ],
+        "visible": true
+      }
+    ]
+  }
+}
